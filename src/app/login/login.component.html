@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Log In</mat-card-title>
+  </mat-card-header>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <mat-card-content>
+    <mat-error *ngIf="!loginValid">
+      {{errorMessage}}
+    </mat-error>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Email" formControlName="username" required>
+      <mat-error>
+        Please provide a valid email address.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input matInput type="password" placeholder="Password" formControlName="password" required>
+      <mat-error>
+      Please provide a valid password.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input matInput type="password" placeholder="Token" formControlName="token" required>
+      <mat-error>
+      Please provide a valid token.
+      </mat-error>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button color="primary">Login</button>
+  </mat-card-actions>
+
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+  </mat-card-footer>
+
+  </form>
+
+</mat-card>
